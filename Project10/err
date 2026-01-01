@@ -1,0 +1,163 @@
+==14429== Memcheck, a memory error detector
+==14429== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==14429== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==14429== Command: ./mygame
+==14429== 
+==14429== Invalid read of size 4
+==14429==    at 0x10E23E: EnemyShip::getX() const (EnemyShip.h:32)
+==14429==    by 0x11073C: Missile::move() (Missile.cpp:48)
+==14429==    by 0x11099D: Missile::update() (Missile.cpp:84)
+==14429==    by 0x10EEE1: Game::update() (Game.cpp:86)
+==14429==    by 0x10BA26: main (main.cpp:31)
+==14429==  Address 0xc is not stack'd, malloc'd or (recently) free'd
+==14429== 
+==14429== 
+==14429== Process terminating with default action of signal 11 (SIGSEGV)
+==14429==  Access not within mapped region at address 0xC
+==14429==    at 0x10E23E: EnemyShip::getX() const (EnemyShip.h:32)
+==14429==    by 0x11073C: Missile::move() (Missile.cpp:48)
+==14429==    by 0x11099D: Missile::update() (Missile.cpp:84)
+==14429==    by 0x10EEE1: Game::update() (Game.cpp:86)
+==14429==    by 0x10BA26: main (main.cpp:31)
+==14429==  If you believe this happened as a result of a stack
+==14429==  overflow in your program's main thread (unlikely but
+==14429==  possible), you can try to increase the size of the
+==14429==  main thread stack using the --main-stacksize= flag.
+==14429==  The main thread stack size used in this run was 8388608.
+==14429== 
+==14429== HEAP SUMMARY:
+==14429==     in use at exit: 197,736 bytes in 482 blocks
+==14429==   total heap usage: 1,589 allocs, 1,107 frees, 752,303 bytes allocated
+==14429== 
+==14429== 9 bytes in 1 blocks are possibly lost in loss record 9 of 91
+==14429==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14429==    by 0x4CA458E: strdup (strdup.c:42)
+==14429==    by 0x48A8D54: ??? (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48AC098: _nc_tiparm (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x487C238: newterm_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x487CB4C: newterm (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x487CBDF: initscr (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x10E416: Gui::init() (Gui.cpp:7)
+==14429==    by 0x10F3E6: Gui::Gui() (Gui.h:11)
+==14429==    by 0x10E6E4: Game::Game() (Game.cpp:7)
+==14429==    by 0x10B989: main (main.cpp:18)
+==14429== 
+==14429== 24 bytes in 1 blocks are possibly lost in loss record 32 of 91
+==14429==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14429==    by 0x4D1C00E: tsearch (tsearch.c:337)
+==14429==    by 0x48A8D6E: ??? (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48AC098: _nc_tiparm (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x487C238: newterm_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x487CB4C: newterm (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x487CBDF: initscr (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x10E416: Gui::init() (Gui.cpp:7)
+==14429==    by 0x10F3E6: Gui::Gui() (Gui.h:11)
+==14429==    by 0x10E6E4: Game::Game() (Game.cpp:7)
+==14429==    by 0x10B989: main (main.cpp:18)
+==14429== 
+==14429== 24 bytes in 1 blocks are possibly lost in loss record 33 of 91
+==14429==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14429==    by 0x4D1C00E: tsearch (tsearch.c:337)
+==14429==    by 0x48A8D6E: ??? (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48AC098: _nc_tiparm (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x4875628: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x4878E6D: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x48846D4: vidputs_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A20B: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A698: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488AF1C: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488BAF5: doupdate_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x10F19D: Game::update() (Game.cpp:112)
+==14429== 
+==14429== 24 bytes in 1 blocks are possibly lost in loss record 34 of 91
+==14429==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14429==    by 0x4D1C00E: tsearch (tsearch.c:337)
+==14429==    by 0x48A8D6E: ??? (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48AC098: _nc_tiparm (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48755A8: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x48846D4: vidputs_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A20B: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A698: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488AF1C: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488BAF5: doupdate_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x10F19D: Game::update() (Game.cpp:112)
+==14429==    by 0x10BA26: main (main.cpp:31)
+==14429== 
+==14429== 63 bytes in 1 blocks are possibly lost in loss record 39 of 91
+==14429==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14429==    by 0x4CA458E: strdup (strdup.c:42)
+==14429==    by 0x48A8D54: ??? (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48AC098: _nc_tiparm (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x4875628: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x4878E6D: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x48846D4: vidputs_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A20B: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A698: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488AF1C: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488BAF5: doupdate_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x10F19D: Game::update() (Game.cpp:112)
+==14429== 
+==14429== 64 bytes in 1 blocks are possibly lost in loss record 40 of 91
+==14429==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14429==    by 0x4CA458E: strdup (strdup.c:42)
+==14429==    by 0x48A8D54: ??? (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48AC098: _nc_tiparm (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48755A8: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x48846D4: vidputs_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A20B: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A698: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488AF1C: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488BAF5: doupdate_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x10F19D: Game::update() (Game.cpp:112)
+==14429==    by 0x10BA26: main (main.cpp:31)
+==14429== 
+==14429== 168 bytes in 1 blocks are possibly lost in loss record 64 of 91
+==14429==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14429==    by 0x48A8CCD: ??? (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48AC098: _nc_tiparm (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x487C238: newterm_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x487CB4C: newterm (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x487CBDF: initscr (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x10E416: Gui::init() (Gui.cpp:7)
+==14429==    by 0x10F3E6: Gui::Gui() (Gui.h:11)
+==14429==    by 0x10E6E4: Game::Game() (Game.cpp:7)
+==14429==    by 0x10B989: main (main.cpp:18)
+==14429== 
+==14429== 168 bytes in 1 blocks are possibly lost in loss record 65 of 91
+==14429==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14429==    by 0x48A8CCD: ??? (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48AC098: _nc_tiparm (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x4875628: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x4878E6D: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x48846D4: vidputs_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A20B: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A698: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488AF1C: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488BAF5: doupdate_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x10F19D: Game::update() (Game.cpp:112)
+==14429==    by 0x10BA26: main (main.cpp:31)
+==14429== 
+==14429== 168 bytes in 1 blocks are possibly lost in loss record 66 of 91
+==14429==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14429==    by 0x48A8CCD: ??? (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48AC098: _nc_tiparm (in /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3)
+==14429==    by 0x48755A8: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x48846D4: vidputs_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A20B: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488A698: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488AF1C: ??? (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x488BAF5: doupdate_sp (in /usr/lib/x86_64-linux-gnu/libncurses.so.6.3)
+==14429==    by 0x10F19D: Game::update() (Game.cpp:112)
+==14429==    by 0x10BA26: main (main.cpp:31)
+==14429== 
+==14429== LEAK SUMMARY:
+==14429==    definitely lost: 0 bytes in 0 blocks
+==14429==    indirectly lost: 0 bytes in 0 blocks
+==14429==      possibly lost: 712 bytes in 9 blocks
+==14429==    still reachable: 197,024 bytes in 473 blocks
+==14429==         suppressed: 0 bytes in 0 blocks
+==14429== Reachable blocks (those to which a pointer was found) are not shown.
+==14429== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==14429== 
+==14429== For lists of detected and suppressed errors, rerun with: -s
+==14429== ERROR SUMMARY: 10 errors from 10 contexts (suppressed: 0 from 0)
